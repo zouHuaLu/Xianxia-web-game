@@ -1,0 +1,9 @@
+[
+  {
+    "id": "wild_wolf",
+    "name": "山狼",
+    "hp": 18,
+    "attack": 4,
+    "defense": 1
+  }
+]

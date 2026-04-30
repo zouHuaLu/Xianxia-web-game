@@ -1,0 +1,17 @@
+[
+  {
+    "id": "awakening",
+    "title": "山谷初醒",
+    "text": "你在无名山谷中醒来，丹田中仅存一缕灵气。",
+    "choices": [
+      {
+        "id": "cultivate",
+        "label": "打坐修炼"
+      },
+      {
+        "id": "explore",
+        "label": "探索山谷"
+      }
+    ]
+  }
+]
