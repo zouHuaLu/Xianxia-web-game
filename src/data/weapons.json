@@ -1,8 +1,8 @@
 [
   {
-    "id": "wooden_sword",
     "name": "桃木剑",
+    "rarity": "common",
     "attack": 2,
-    "rarity": "common"
+    "affixes": []
   }
 ]

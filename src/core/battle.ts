@@ -1,35 +1,31 @@
 import { randomInt } from './rng';
+import { rollRandomRewards } from './loot';
+import type { BattleResult, Enemy, Player } from './types';
 
-export type Combatant = {
-  name: string;
-  hp: number;
-  attack: number;
-  defense: number;
-};
+function getPlayerAttack(player: Player) {
+  return player.attack + (player.weapon?.attack ?? 0);
+}
 
-export type BattleResult = {
-  winner: 'player' | 'enemy';
-  turns: number;
-};
-
-export function resolveBattle(player: Combatant, enemy: Combatant): BattleResult {
+export function resolveBattle(player: Player, enemy: Enemy): BattleResult {
   let playerHp = player.hp;
   let enemyHp = enemy.hp;
-  let turns = 0;
+  const startingHp = player.hp;
 
   while (playerHp > 0 && enemyHp > 0) {
-    turns += 1;
-    enemyHp -= Math.max(1, player.attack + randomInt(0, 3) - enemy.defense);
+    enemyHp -= Math.max(1, getPlayerAttack(player) + randomInt(0, 2));
 
     if (enemyHp <= 0) {
       break;
     }
 
-    playerHp -= Math.max(1, enemy.attack + randomInt(0, 3) - player.defense);
+    playerHp -= Math.max(1, enemy.attack + randomInt(0, 2));
   }
 
+  const win = playerHp > 0;
+
   return {
-    winner: playerHp > 0 ? 'player' : 'enemy',
-    turns,
+    win,
+    hpLost: Math.min(startingHp, startingHp - Math.max(0, playerHp)),
+    rewards: win ? rollRandomRewards(enemy.reward) : [],
   };
 }

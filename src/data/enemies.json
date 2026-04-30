@@ -1,9 +1,12 @@
 [
   {
-    "id": "wild_wolf",
-    "name": "山狼",
-    "hp": 18,
-    "attack": 4,
-    "defense": 1
+    "id": "wolf",
+    "name": "野狼",
+    "hp": 30,
+    "attack": 6,
+    "reward": {
+      "gold": [3, 8],
+      "weaponChance": 0.25
+    }
   }
 ]

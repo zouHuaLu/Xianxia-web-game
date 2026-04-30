@@ -1,0 +1,112 @@
+[
+  {
+    "id": "heavenly_spirit_root",
+    "name": "天灵根",
+    "description": "修炼速度+50%，灵气亲和极高。",
+    "modifiers": {
+      "luck": 2,
+      "maxHp": -2
+    }
+  },
+  {
+    "id": "five_spirit_roots",
+    "name": "五灵根",
+    "description": "成长慢，但根基更杂更稳。",
+    "modifiers": {
+      "maxHp": 6,
+      "attack": -1,
+      "agility": -1
+    }
+  },
+  {
+    "id": "favored_by_fortune",
+    "name": "气运之子",
+    "description": "奇遇概率提升，更容易遇见机缘。",
+    "modifiers": {
+      "luck": 5,
+      "gold": 8
+    }
+  },
+  {
+    "id": "ominous_star",
+    "name": "煞星",
+    "description": "战斗强，但容易被敌意盯上。",
+    "modifiers": {
+      "attack": 4,
+      "luck": -2
+    }
+  },
+  {
+    "id": "sword_heart",
+    "name": "剑心通明",
+    "description": "天生适合剑道，出手凌厉。",
+    "modifiers": {
+      "attack": 3,
+      "agility": 1
+    }
+  },
+  {
+    "id": "jade_bones",
+    "name": "玉骨冰肌",
+    "description": "体质清净，气血上限更高。",
+    "modifiers": {
+      "maxHp": 10,
+      "luck": 1
+    }
+  },
+  {
+    "id": "merchant_family",
+    "name": "商贾出身",
+    "description": "开局携带更多金钱。",
+    "modifiers": {
+      "gold": 30,
+      "attack": -1
+    }
+  },
+  {
+    "id": "street_survivor",
+    "name": "市井求生",
+    "description": "身法灵活，懂得避险。",
+    "modifiers": {
+      "agility": 3,
+      "luck": 1
+    }
+  },
+  {
+    "id": "ancient_bloodline",
+    "name": "上古血脉",
+    "description": "血脉强横，但也更难驾驭。",
+    "modifiers": {
+      "maxHp": 12,
+      "attack": 2,
+      "agility": -1
+    }
+  },
+  {
+    "id": "weak_constitution",
+    "name": "先天体弱",
+    "description": "气血不足，但悟性带来额外机缘。",
+    "modifiers": {
+      "maxHp": -8,
+      "luck": 3
+    }
+  },
+  {
+    "id": "swift_shadow",
+    "name": "踏影身法",
+    "description": "行动迅捷，先机更足。",
+    "modifiers": {
+      "agility": 4
+    }
+  },
+  {
+    "id": "poverty_tempering",
+    "name": "寒门磨砺",
+    "description": "开局贫寒，但意志坚韧。",
+    "modifiers": {
+      "gold": -8,
+      "maxHp": 5,
+      "attack": 1
+    }
+  }
+]

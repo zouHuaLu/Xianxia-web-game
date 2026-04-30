@@ -1,16 +1,88 @@
 [
   {
-    "id": "awakening",
-    "title": "山谷初醒",
-    "text": "你在无名山谷中醒来，丹田中仅存一缕灵气。",
+    "id": "forest_wolf",
+    "stage": "early",
+    "weight": 10,
+    "text": "山林中窜出一头野狼，獠牙上还沾着未干的血。",
     "choices": [
       {
-        "id": "cultivate",
-        "label": "打坐修炼"
+        "text": "拔刀迎战",
+        "result": {
+          "type": "battle",
+          "enemy": "wolf"
+        }
       },
       {
-        "id": "explore",
-        "label": "探索山谷"
+        "text": "转身逃跑",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "abandoned_shrine",
+    "stage": "early",
+    "weight": 8,
+    "text": "荒草深处有一座破败山神庙，供桌上积满尘灰。",
+    "choices": [
+      {
+        "text": "入庙搜寻",
+        "result": {
+          "type": "loot",
+          "gold": [4, 10],
+          "weaponChance": 0.35
+        }
+      },
+      {
+        "text": "在庙后调息",
+        "result": {
+          "type": "rest",
+          "hp": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "mountain_spring",
+    "stage": "early",
+    "weight": 7,
+    "text": "你发现一眼清泉，泉边灵气淡薄，却足以洗去疲惫。",
+    "choices": [
+      {
+        "text": "饮泉恢复",
+        "result": {
+          "type": "rest",
+          "hp": 8
+        }
+      },
+      {
+        "text": "继续赶路",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "wandering_friend",
+    "stage": "early",
+    "weight": 6,
+    "text": "一位落魄散修在溪边烤火，见你并无恶意，邀你坐下同饮一盏热茶。",
+    "choices": [
+      {
+        "text": "与他交谈",
+        "result": {
+          "type": "loot",
+          "weaponChance": 0.6
+        }
+      },
+      {
+        "text": "谢绝好意",
+        "result": {
+          "type": "rest",
+          "hp": 4
+        }
       }
     ]
   }
