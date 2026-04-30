@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import talentsData from '../data/talents.json';
 import { getAvailableEvents, pickWeightedEvent, resolveChoice } from '../core/eventEngine';
+import { clearSave, SAVE_KEY } from '../core/save';
 import { startingStageId } from '../core/world';
 import type { GameChoice, GameState, Player, Talent, TalentModifier, Weapon } from '../core/types';
 
@@ -88,6 +89,13 @@ function createInitialState(): GameState {
   };
 }
 
+function createDeathState(): GameState {
+  return {
+    ...createInitialState(),
+    log: ['你已死亡，当前局已清除。'],
+  };
+}
+
 export const useGameStore = create<GameStore>()(
   persist(
     (set) => ({
@@ -114,7 +122,17 @@ export const useGameStore = create<GameStore>()(
             ],
           };
         }),
-      choose: (choice) => set((state) => resolveChoice(choice, state)),
+      choose: (choice) =>
+        set((state) => {
+          const nextState = resolveChoice(choice, state);
+
+          if (nextState.player.hp <= 0) {
+            clearSave();
+            return createDeathState();
+          }
+
+          return nextState;
+        }),
       useInventoryItem: (index) =>
         set((state) => {
           const item = state.player.inventory[index];
@@ -192,7 +210,7 @@ export const useGameStore = create<GameStore>()(
       reset: () => set(createInitialState()),
     }),
     {
-      name: 'xianxia-web-game-save',
+      name: SAVE_KEY,
     },
   ),
 );

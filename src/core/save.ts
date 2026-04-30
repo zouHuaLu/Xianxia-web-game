@@ -1,9 +1,9 @@
-const saveKey = 'xianxia-web-game-save';
+export const SAVE_KEY = 'xianxia-web-game-save';
 
 export function clearSave() {
-  localStorage.removeItem(saveKey);
+  localStorage.removeItem(SAVE_KEY);
 }
 
 export function readRawSave() {
-  return localStorage.getItem(saveKey);
+  return localStorage.getItem(SAVE_KEY);
 }
