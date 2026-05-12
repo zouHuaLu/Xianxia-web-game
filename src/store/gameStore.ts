@@ -4,7 +4,15 @@ import talentsData from '../data/talents.json';
 import { getAvailableEvents, pickWeightedEvent, resolveChoice } from '../core/eventEngine';
 import { clearSave, SAVE_KEY } from '../core/save';
 import { startingStageId } from '../core/world';
-import type { GameChoice, GameState, Player, Talent, TalentModifier, Weapon } from '../core/types';
+import type {
+  DeathRecord,
+  GameChoice,
+  GameState,
+  Player,
+  Talent,
+  TalentModifier,
+  Weapon,
+} from '../core/types';
 
 type GameActions = {
   rollTalents: () => void;
@@ -16,6 +24,7 @@ type GameActions = {
   rest: () => void;
   train: () => void;
   addLog: (message: string) => void;
+  returnToStart: () => void;
   reset: () => void;
 };
 
@@ -86,12 +95,31 @@ function createInitialState(): GameState {
     seed: Date.now(),
     log: ['等待入世。'],
     selectedTalents: pickRandomTalents(3),
+    deathRecord: undefined,
   };
 }
 
-function createDeathState(): GameState {
+function createDeathRecord(state: GameState, cause: string): DeathRecord {
+  return {
+    day: state.day,
+    realm: state.player.realm,
+    cause,
+    finalStats: {
+      maxHp: state.player.maxHp,
+      attack: state.player.attack + (state.player.weapon?.attack ?? 0),
+      agility: state.player.agility,
+      luck: state.player.luck,
+      gold: state.player.gold,
+      weaponName: state.player.weapon?.name ?? '赤手空拳',
+    },
+    recentLog: state.log.slice(0, 6),
+  };
+}
+
+function createDeathState(deathRecord: DeathRecord): GameState {
   return {
     ...createInitialState(),
+    deathRecord,
     log: ['你已死亡，当前局已清除。'],
   };
 }
@@ -116,6 +144,7 @@ export const useGameStore = create<GameStore>()(
             player,
             currentEventId: firstEvent?.id ?? 'forest_wolf',
             day: 1,
+            deathRecord: undefined,
             log: [
               `你携 ${state.selectedTalents.map((talent) => talent.name).join('、')} 入世。`,
               '你在无名山谷中醒来。',
@@ -127,8 +156,10 @@ export const useGameStore = create<GameStore>()(
           const nextState = resolveChoice(choice, state);
 
           if (nextState.player.hp <= 0) {
+            const cause = nextState.log[0] ?? '你倒在无名道途中。';
+            const deathRecord = createDeathRecord(nextState, cause);
             clearSave();
-            return createDeathState();
+            return createDeathState(deathRecord);
           }
 
           return nextState;
@@ -207,6 +238,7 @@ export const useGameStore = create<GameStore>()(
         set((state) => ({
           log: [message, ...state.log].slice(0, 20),
         })),
+      returnToStart: () => set(createInitialState()),
       reset: () => set(createInitialState()),
     }),
     {

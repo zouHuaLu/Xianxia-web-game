@@ -8,5 +8,95 @@
       "gold": [3, 8],
       "weaponChance": 0.25
     }
+  },
+  {
+    "id": "bandit_scout",
+    "name": "山贼探子",
+    "hp": 34,
+    "attack": 7,
+    "reward": {
+      "gold": [6, 12],
+      "weaponChance": 0.3
+    }
+  },
+  {
+    "id": "mountain_boar",
+    "name": "黑鬃山猪",
+    "hp": 42,
+    "attack": 8,
+    "reward": {
+      "gold": [5, 11],
+      "weaponChance": 0.2
+    }
+  },
+  {
+    "id": "poison_snake",
+    "name": "青纹毒蛇",
+    "hp": 24,
+    "attack": 9,
+    "reward": {
+      "gold": [4, 10],
+      "weaponChance": 0.2
+    }
+  },
+  {
+    "id": "feral_dog",
+    "name": "疯犬",
+    "hp": 28,
+    "attack": 7,
+    "reward": {
+      "gold": [3, 9],
+      "weaponChance": 0.18
+    }
+  },
+  {
+    "id": "grave_rat",
+    "name": "灰毛墓鼠",
+    "hp": 22,
+    "attack": 6,
+    "reward": {
+      "gold": [2, 7],
+      "weaponChance": 0.18
+    }
+  },
+  {
+    "id": "hungry_crow",
+    "name": "饥饿乌鸦",
+    "hp": 20,
+    "attack": 8,
+    "reward": {
+      "gold": [2, 8],
+      "weaponChance": 0.15
+    }
+  },
+  {
+    "id": "rogue_cultivator",
+    "name": "落魄散修",
+    "hp": 46,
+    "attack": 10,
+    "reward": {
+      "gold": [10, 20],
+      "weaponChance": 0.45
+    }
+  },
+  {
+    "id": "bone_soldier",
+    "name": "白骨兵",
+    "hp": 50,
+    "attack": 11,
+    "reward": {
+      "gold": [12, 24],
+      "weaponChance": 0.5
+    }
+  },
+  {
+    "id": "minor_demon",
+    "name": "低阶小妖",
+    "hp": 58,
+    "attack": 12,
+    "reward": {
+      "gold": [16, 30],
+      "weaponChance": 0.6
+    }
   }
 ]

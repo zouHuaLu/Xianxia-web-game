@@ -1,6 +1,6 @@
 [
   {
-    "id": "forest_wolf",
+    "id": "battle_forest_wolf",
     "stage": "early",
     "weight": 10,
     "text": "山林中窜出一头野狼，獠牙上还沾着未干的血。",
@@ -21,7 +21,196 @@
     ]
   },
   {
-    "id": "abandoned_shrine",
+    "id": "battle_bandit_scout",
+    "stage": "early",
+    "weight": 9,
+    "text": "山道旁钻出一名探路山贼，手中短刀寒光一闪。",
+    "choices": [
+      {
+        "text": "先发制人",
+        "result": {
+          "type": "battle",
+          "enemy": "bandit_scout"
+        }
+      },
+      {
+        "text": "绕入林中",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_mountain_boar",
+    "stage": "early",
+    "weight": 8,
+    "text": "一头黑鬃山猪撞断灌木，直直朝你冲来。",
+    "choices": [
+      {
+        "text": "侧身斩击",
+        "result": {
+          "type": "battle",
+          "enemy": "mountain_boar"
+        }
+      },
+      {
+        "text": "跃上岩石",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_poison_snake",
+    "stage": "early",
+    "weight": 8,
+    "text": "枯叶下盘着一条青纹毒蛇，蛇信吞吐，已盯上你的脚踝。",
+    "choices": [
+      {
+        "text": "挑开蛇身",
+        "result": {
+          "type": "battle",
+          "enemy": "poison_snake"
+        }
+      },
+      {
+        "text": "屏息后退",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_feral_dog",
+    "stage": "early",
+    "weight": 8,
+    "text": "废村口有一只疯犬低声咆哮，身上挂着破碎铁链。",
+    "choices": [
+      {
+        "text": "挥剑驱赶",
+        "result": {
+          "type": "battle",
+          "enemy": "feral_dog"
+        }
+      },
+      {
+        "text": "丢石引开",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_grave_rat",
+    "stage": "early",
+    "weight": 7,
+    "text": "乱坟间响起啃噬声，一只灰毛墓鼠从土洞里扑出。",
+    "choices": [
+      {
+        "text": "斩断来路",
+        "result": {
+          "type": "battle",
+          "enemy": "grave_rat"
+        }
+      },
+      {
+        "text": "快步离开",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_hungry_crow",
+    "stage": "early",
+    "weight": 7,
+    "text": "一只饥饿乌鸦从树冠俯冲，尖喙直取你的眼睛。",
+    "choices": [
+      {
+        "text": "横剑格挡",
+        "result": {
+          "type": "battle",
+          "enemy": "hungry_crow"
+        }
+      },
+      {
+        "text": "钻入树下",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_rogue_cultivator",
+    "stage": "early",
+    "weight": 6,
+    "text": "一名落魄散修拦住去路，眼中满是贪念。",
+    "choices": [
+      {
+        "text": "正面交手",
+        "result": {
+          "type": "battle",
+          "enemy": "rogue_cultivator"
+        }
+      },
+      {
+        "text": "假意退让",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_bone_soldier",
+    "stage": "early",
+    "weight": 5,
+    "text": "破庙阴影中立起一具白骨兵，锈剑拖在地上沙沙作响。",
+    "choices": [
+      {
+        "text": "震碎骸骨",
+        "result": {
+          "type": "battle",
+          "enemy": "bone_soldier"
+        }
+      },
+      {
+        "text": "退到日光下",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battle_minor_demon",
+    "stage": "early",
+    "weight": 4,
+    "text": "林雾忽然腥甜，一只低阶小妖从树后显形。",
+    "choices": [
+      {
+        "text": "拼力一战",
+        "result": {
+          "type": "battle",
+          "enemy": "minor_demon"
+        }
+      },
+      {
+        "text": "借雾遁走",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_abandoned_shrine",
     "stage": "early",
     "weight": 8,
     "text": "荒草深处有一座破败山神庙，供桌上积满尘灰。",
@@ -44,20 +233,228 @@
     ]
   },
   {
-    "id": "mountain_spring",
+    "id": "encounter_mountain_spring",
     "stage": "early",
-    "weight": 7,
+    "weight": 8,
     "text": "你发现一眼清泉，泉边灵气淡薄，却足以洗去疲惫。",
     "choices": [
       {
         "text": "饮泉恢复",
         "result": {
           "type": "rest",
+          "hp": 10
+        }
+      },
+      {
+        "text": "沿泉搜寻",
+        "result": {
+          "type": "loot",
+          "gold": [2, 6],
+          "weaponChance": 0.15
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_fallen_pack",
+    "stage": "early",
+    "weight": 7,
+    "text": "山坡下有一只被雨水冲开的旧包裹，布料已经腐烂。",
+    "choices": [
+      {
+        "text": "翻找包裹",
+        "result": {
+          "type": "loot",
+          "gold": [6, 14],
+          "weaponChance": 0.2
+        }
+      },
+      {
+        "text": "谨慎离开",
+        "result": {
+          "type": "rest",
+          "hp": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_old_sword_mark",
+    "stage": "early",
+    "weight": 7,
+    "text": "岩壁上留着一道旧剑痕，指尖靠近时仍有微弱锐意。",
+    "choices": [
+      {
+        "text": "凝神观摩",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      },
+      {
+        "text": "敲下碎石",
+        "result": {
+          "type": "loot",
+          "gold": [3, 8],
+          "weaponChance": 0.1
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_herb_patch",
+    "stage": "early",
+    "weight": 7,
+    "text": "潮湿石缝间长着几株药草，叶片上有淡淡清香。",
+    "choices": [
+      {
+        "text": "采药疗伤",
+        "result": {
+          "type": "rest",
+          "hp": 12
+        }
+      },
+      {
+        "text": "卖给药铺",
+        "result": {
+          "type": "gold",
+          "amount": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_moonlit_stone",
+    "stage": "early",
+    "weight": 6,
+    "text": "月光落在一块青石上，石面纹路像是天然符文。",
+    "choices": [
+      {
+        "text": "静坐感悟",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      },
+      {
+        "text": "取石出售",
+        "result": {
+          "type": "gold",
+          "amount": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_lost_campfire",
+    "stage": "early",
+    "weight": 6,
+    "text": "林中残留一堆未灭的篝火，旁边散落着几枚铜钱。",
+    "choices": [
+      {
+        "text": "收起铜钱",
+        "result": {
+          "type": "gold",
+          "amount": 6
+        }
+      },
+      {
+        "text": "借火休息",
+        "result": {
+          "type": "rest",
+          "hp": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_hidden_spring_cave",
+    "stage": "early",
+    "weight": 5,
+    "text": "藤蔓后藏着一处小洞，洞中水汽温热，似有地脉流过。",
+    "choices": [
+      {
+        "text": "浸泡调息",
+        "result": {
+          "type": "stat",
+          "stat": "maxHp",
+          "amount": 4
+        }
+      },
+      {
+        "text": "搜寻洞底",
+        "result": {
+          "type": "loot",
+          "gold": [8, 16],
+          "weaponChance": 0.25
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_broken_cart",
+    "stage": "early",
+    "weight": 5,
+    "text": "路边倒着一辆破车，车辙延伸到泥地深处。",
+    "choices": [
+      {
+        "text": "检查货箱",
+        "result": {
+          "type": "loot",
+          "gold": [5, 12],
+          "weaponChance": 0.3
+        }
+      },
+      {
+        "text": "顺着车辙走",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "encounter_starry_dream",
+    "stage": "early",
+    "weight": 4,
+    "text": "你在荒野入睡，梦见群星落入掌心，醒来时精神清明。",
+    "choices": [
+      {
+        "text": "记下梦境",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      },
+      {
+        "text": "继续调息",
+        "result": {
+          "type": "rest",
+          "hp": 14
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_rotten_bridge",
+    "stage": "early",
+    "weight": 8,
+    "text": "一座木桥横在溪上，踏到中段时朽木突然断裂。",
+    "choices": [
+      {
+        "text": "强行跃过",
+        "result": {
+          "type": "damage",
           "hp": 8
         }
       },
       {
-        "text": "继续赶路",
+        "text": "贴水攀回",
         "result": {
           "type": "escape"
         }
@@ -65,9 +462,446 @@
     ]
   },
   {
-    "id": "wandering_friend",
+    "id": "trap_rolling_stones",
+    "stage": "early",
+    "weight": 8,
+    "text": "山坡上传来碎响，几块松动山石滚落下来。",
+    "choices": [
+      {
+        "text": "护住要害",
+        "result": {
+          "type": "damage",
+          "hp": 10
+        }
+      },
+      {
+        "text": "借树闪避",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_poison_mist",
+    "stage": "early",
+    "weight": 7,
+    "text": "低洼处升起淡紫雾气，喉间很快泛起苦涩。",
+    "choices": [
+      {
+        "text": "屏息冲出",
+        "result": {
+          "type": "damage",
+          "hp": 9
+        }
+      },
+      {
+        "text": "原地运气",
+        "result": {
+          "type": "rest",
+          "hp": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_hunter_snare",
+    "stage": "early",
+    "weight": 7,
+    "text": "草丛中绳套骤然收紧，将你的脚腕高高吊起。",
+    "choices": [
+      {
+        "text": "割断绳索",
+        "result": {
+          "type": "damage",
+          "hp": 6
+        }
+      },
+      {
+        "text": "借势脱身",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_collapsing_cave",
     "stage": "early",
     "weight": 6,
+    "text": "你刚踏入浅洞，头顶泥土便簌簌落下。",
+    "choices": [
+      {
+        "text": "顶着落石冲出",
+        "result": {
+          "type": "damage",
+          "hp": 12
+        }
+      },
+      {
+        "text": "贴墙慢退",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_hidden_thorns",
+    "stage": "early",
+    "weight": 6,
+    "text": "荆棘被落叶遮住，尖刺划破了小腿。",
+    "choices": [
+      {
+        "text": "拔刺包扎",
+        "result": {
+          "type": "damage",
+          "hp": 5
+        }
+      },
+      {
+        "text": "采下带毒荆条",
+        "result": {
+          "type": "loot",
+          "gold": [3, 7],
+          "weaponChance": 0.1
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_quicksand_bank",
+    "stage": "early",
+    "weight": 5,
+    "text": "河滩泥沙忽然下陷，脚下像被无形之手拖住。",
+    "choices": [
+      {
+        "text": "奋力挣脱",
+        "result": {
+          "type": "damage",
+          "hp": 11
+        }
+      },
+      {
+        "text": "放轻动作",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_cold_rain",
+    "stage": "early",
+    "weight": 5,
+    "text": "山雨突至，寒意顺着衣襟钻入骨缝。",
+    "choices": [
+      {
+        "text": "冒雨赶路",
+        "result": {
+          "type": "damage",
+          "hp": 7
+        }
+      },
+      {
+        "text": "寻树避雨",
+        "result": {
+          "type": "rest",
+          "hp": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_false_floor",
+    "stage": "early",
+    "weight": 4,
+    "text": "古井边的石板忽然翻转，露出下方黑洞。",
+    "choices": [
+      {
+        "text": "抓住井沿",
+        "result": {
+          "type": "damage",
+          "hp": 13
+        }
+      },
+      {
+        "text": "顺势翻滚",
+        "result": {
+          "type": "escape"
+        }
+      }
+    ]
+  },
+  {
+    "id": "trap_spirit_backlash",
+    "stage": "early",
+    "weight": 4,
+    "text": "你误触一枚残破符印，紊乱灵气冲入经脉。",
+    "choices": [
+      {
+        "text": "硬抗反噬",
+        "result": {
+          "type": "damage",
+          "hp": 15
+        }
+      },
+      {
+        "text": "引气归元",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_morning_sword",
+    "stage": "early",
+    "weight": 8,
+    "text": "清晨雾气未散，你在林间反复演练基础剑式。",
+    "choices": [
+      {
+        "text": "苦练劈刺",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      },
+      {
+        "text": "收势调息",
+        "result": {
+          "type": "rest",
+          "hp": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_stone_steps",
+    "stage": "early",
+    "weight": 8,
+    "text": "山寺残阶陡峭，你决定负重来回攀登。",
+    "choices": [
+      {
+        "text": "练步法",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      },
+      {
+        "text": "缓步养气",
+        "result": {
+          "type": "stat",
+          "stat": "maxHp",
+          "amount": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_breathing_method",
+    "stage": "early",
+    "weight": 7,
+    "text": "你按旧书所载吐纳，尝试让气息绕行周天。",
+    "choices": [
+      {
+        "text": "稳住周天",
+        "result": {
+          "type": "stat",
+          "stat": "maxHp",
+          "amount": 4
+        }
+      },
+      {
+        "text": "凝练心神",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_wooden_dummy",
+    "stage": "early",
+    "weight": 7,
+    "text": "你削木为桩，在树影间练习连续出剑。",
+    "choices": [
+      {
+        "text": "追求力道",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      },
+      {
+        "text": "追求速度",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_water_balance",
+    "stage": "early",
+    "weight": 7,
+    "text": "溪中立着几块滑石，你踩石而行，练习平衡。",
+    "choices": [
+      {
+        "text": "疾行过溪",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      },
+      {
+        "text": "稳步扎根",
+        "result": {
+          "type": "stat",
+          "stat": "maxHp",
+          "amount": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_night_watch",
+    "stage": "early",
+    "weight": 6,
+    "text": "你守着夜火不眠，逼自己捕捉每一点风吹草动。",
+    "choices": [
+      {
+        "text": "磨炼警觉",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      },
+      {
+        "text": "练习拔剑",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_mountain_run",
+    "stage": "early",
+    "weight": 6,
+    "text": "你沿着山脊奔跑，肺腑灼痛，却也越发轻快。",
+    "choices": [
+      {
+        "text": "冲刺山脊",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      },
+      {
+        "text": "坚持长跑",
+        "result": {
+          "type": "stat",
+          "stat": "maxHp",
+          "amount": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_old_man_advice",
+    "stage": "early",
+    "weight": 6,
+    "text": "路边老人看你练得急躁，随口点出几处发力破绽。",
+    "choices": [
+      {
+        "text": "照言修正",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      },
+      {
+        "text": "虚心请教",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_cold_pool",
+    "stage": "early",
+    "weight": 5,
+    "text": "山坳寒潭刺骨，你咬牙入水，借寒意打磨体魄。",
+    "choices": [
+      {
+        "text": "淬炼气血",
+        "result": {
+          "type": "stat",
+          "stat": "maxHp",
+          "amount": 5
+        }
+      },
+      {
+        "text": "迅速出水",
+        "result": {
+          "type": "rest",
+          "hp": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "training_blindfold_steps",
+    "stage": "early",
+    "weight": 5,
+    "text": "你蒙住双眼，在林间听风辨位，练习不看而动。",
+    "choices": [
+      {
+        "text": "听风出步",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      },
+      {
+        "text": "听声出剑",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_wandering_friend",
+    "stage": "early",
+    "weight": 8,
     "text": "一位落魄散修在溪边烤火，见你并无恶意，邀你坐下同饮一盏热茶。",
     "choices": [
       {
@@ -82,6 +916,304 @@
         "result": {
           "type": "rest",
           "hp": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_herb_merchant",
+    "stage": "early",
+    "weight": 8,
+    "text": "游方药商挑着药箱经过，愿用低价卖你几包伤药。",
+    "choices": [
+      {
+        "text": "买下伤药",
+        "result": {
+          "type": "rest",
+          "hp": 16
+        }
+      },
+      {
+        "text": "帮他搬货",
+        "result": {
+          "type": "gold",
+          "amount": 9
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_blacksmith_stall",
+    "stage": "early",
+    "weight": 7,
+    "text": "山脚铁匠摆着简陋摊位，几柄旧兵器横在油布上。",
+    "choices": [
+      {
+        "text": "挑一件旧兵器",
+        "result": {
+          "type": "loot",
+          "weaponChance": 0.75
+        }
+      },
+      {
+        "text": "替他拉风箱",
+        "result": {
+          "type": "stat",
+          "stat": "maxHp",
+          "amount": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_innkeeper_tip",
+    "stage": "early",
+    "weight": 7,
+    "text": "客栈掌柜收下你的柴火，低声说起附近山路的传闻。",
+    "choices": [
+      {
+        "text": "听取消息",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      },
+      {
+        "text": "换些饭钱",
+        "result": {
+          "type": "gold",
+          "amount": 7
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_village_guard",
+    "stage": "early",
+    "weight": 7,
+    "text": "村口护卫见你携剑，邀你一同巡视夜路。",
+    "choices": [
+      {
+        "text": "巡夜练胆",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      },
+      {
+        "text": "领取报酬",
+        "result": {
+          "type": "gold",
+          "amount": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_child_lost",
+    "stage": "early",
+    "weight": 6,
+    "text": "一个迷路孩童在山路边哭泣，手里攥着一枚旧铜铃。",
+    "choices": [
+      {
+        "text": "送他回村",
+        "result": {
+          "type": "gold",
+          "amount": 12
+        }
+      },
+      {
+        "text": "安抚片刻",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_book_peddler",
+    "stage": "early",
+    "weight": 6,
+    "text": "书贩背着旧书箱，声称有几页残缺修行笔记。",
+    "choices": [
+      {
+        "text": "买下残页",
+        "result": {
+          "type": "stat",
+          "stat": "attack",
+          "amount": 1
+        }
+      },
+      {
+        "text": "替他抄书",
+        "result": {
+          "type": "gold",
+          "amount": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_caravan_job",
+    "stage": "early",
+    "weight": 6,
+    "text": "一支小商队缺少护送人手，愿付些银钱请你同行半日。",
+    "choices": [
+      {
+        "text": "护送商队",
+        "result": {
+          "type": "gold",
+          "amount": 15
+        }
+      },
+      {
+        "text": "沿途练步",
+        "result": {
+          "type": "stat",
+          "stat": "agility",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_temple_keeper",
+    "stage": "early",
+    "weight": 5,
+    "text": "守庙老人让你帮忙清扫香灰，作为回报可留宿一晚。",
+    "choices": [
+      {
+        "text": "留宿养伤",
+        "result": {
+          "type": "rest",
+          "hp": 18
+        }
+      },
+      {
+        "text": "听他讲古",
+        "result": {
+          "type": "stat",
+          "stat": "luck",
+          "amount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "social_minor_market",
+    "stage": "early",
+    "weight": 5,
+    "text": "山坳里临时开起小集，散修、猎户和药农挤在窄路两侧。",
+    "choices": [
+      {
+        "text": "淘换兵器",
+        "result": {
+          "type": "loot",
+          "gold": [4, 9],
+          "weaponChance": 0.65
+        }
+      },
+      {
+        "text": "摆摊帮工",
+        "result": {
+          "type": "gold",
+          "amount": 14
+        }
+      }
+    ]
+  },
+  {
+    "id": "qi_spirit_forest",
+    "stage": "qi",
+    "weight": 10,
+    "text": "你踏入灵气更盛的山林，周身经脉隐隐发热。",
+    "choices": [
+      {
+        "text": "炼化灵气",
+        "result": {
+          "type": "gold",
+          "amount": 12
+        }
+      },
+      {
+        "text": "寻觅法器",
+        "result": {
+          "type": "loot",
+          "gold": [10, 20],
+          "weaponChance": 0.55
+        }
+      }
+    ]
+  },
+  {
+    "id": "foundation_cave",
+    "stage": "foundation",
+    "weight": 10,
+    "text": "你寻到一处古修洞府，石壁上残留着筑基修士的剑痕。",
+    "choices": [
+      {
+        "text": "参悟剑痕",
+        "result": {
+          "type": "gold",
+          "amount": 25
+        }
+      },
+      {
+        "text": "搜寻遗物",
+        "result": {
+          "type": "loot",
+          "gold": [25, 45],
+          "weaponChance": 0.7
+        }
+      }
+    ]
+  },
+  {
+    "id": "core_thunder_peak",
+    "stage": "core",
+    "weight": 10,
+    "text": "雷云压顶，山巅灵机翻涌，正适合淬炼金丹之力。",
+    "choices": [
+      {
+        "text": "迎雷淬体",
+        "result": {
+          "type": "gold",
+          "amount": 60
+        }
+      },
+      {
+        "text": "采集雷灵石",
+        "result": {
+          "type": "loot",
+          "gold": [60, 100],
+          "weaponChance": 0.8
+        }
+      }
+    ]
+  },
+  {
+    "id": "soul_void_rift",
+    "stage": "soul",
+    "weight": 10,
+    "text": "虚空裂隙在夜色中张开，元婴感应到界外灵潮。",
+    "choices": [
+      {
+        "text": "稳固元婴",
+        "result": {
+          "type": "gold",
+          "amount": 120
+        }
+      },
+      {
+        "text": "探入裂隙",
+        "result": {
+          "type": "loot",
+          "gold": [120, 180],
+          "weaponChance": 0.9
         }
       }
     ]

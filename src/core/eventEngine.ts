@@ -2,6 +2,7 @@ import enemiesData from '../data/enemies.json';
 import eventsData from '../data/events.json';
 import { resolveBattle } from './battle';
 import { rollRandomRewards } from './loot';
+import { resolveBreakthrough } from './world';
 import type { Enemy, GameChoice, GameEvent, GameState, Player, Reward } from './types';
 
 const events = eventsData as GameEvent[];
@@ -123,6 +124,24 @@ export function resolveChoice(choice: GameChoice, gameState: GameState): GameSta
       };
       logs.push(`你获得 ${result.amount} 金。`);
       break;
+    case 'damage':
+      player = {
+        ...player,
+        hp: Math.max(0, player.hp - result.hp),
+      };
+      logs.push(`你损失 ${result.hp} 气血。`);
+      break;
+    case 'stat':
+      player = {
+        ...player,
+        [result.stat]: player[result.stat] + result.amount,
+        hp:
+          result.stat === 'maxHp'
+            ? Math.min(player.maxHp + result.amount, player.hp + result.amount)
+            : player.hp,
+      };
+      logs.push(`你提升了 ${result.amount} 点${formatStatName(result.stat)}。`);
+      break;
     case 'loot': {
       const rewards = rollRandomRewards(result);
       player = applyRewards(player, rewards);
@@ -132,13 +151,30 @@ export function resolveChoice(choice: GameChoice, gameState: GameState): GameSta
     }
   }
 
+  const nextDay = gameState.day + 1;
+  const breakthrough = resolveBreakthrough(player, nextDay);
+  player = breakthrough.player;
+
   const nextEvent = pickWeightedEvent(getAvailableEvents(player));
 
   return {
     ...gameState,
     player,
     currentEventId: nextEvent?.id ?? gameState.currentEventId,
-    day: gameState.day + 1,
-    log: [...logs, ...gameState.log].slice(0, 20),
+    day: nextDay,
+    log: [...breakthrough.logs, ...logs, ...gameState.log].slice(0, 20),
   };
+}
+
+function formatStatName(stat: 'maxHp' | 'attack' | 'agility' | 'luck') {
+  switch (stat) {
+    case 'maxHp':
+      return '气血上限';
+    case 'attack':
+      return '攻击';
+    case 'agility':
+      return '身法';
+    case 'luck':
+      return '幸运';
+  }
 }
