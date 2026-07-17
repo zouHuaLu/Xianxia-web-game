@@ -1,0 +1,59 @@
+{
+  "title": "雾山问道",
+  "protagonist": {
+    "name": "沈青舟"
+  },
+  "startNodeId": "mist-valley",
+  "nodes": [
+    {
+      "id": "mist-valley",
+      "title": "雾谷来客",
+      "text": "沈青舟在雾谷边缘醒来。一名受伤的旅人向你求助，远处山道上则传来铜铃声。",
+      "choices": [
+        {
+          "id": "help-traveler",
+          "text": "替旅人包扎伤口",
+          "nextId": "traveler-secret",
+          "effects": {
+            "hp": 95
+          }
+        },
+        {
+          "id": "follow-bell",
+          "text": "循着铜铃声上山",
+          "nextId": "mountain-gate",
+          "effects": {
+            "luck": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "traveler-secret",
+      "title": "残页秘闻",
+      "text": "旅人留下半卷残页，告诉你山中有一座废弃道观。你将残页收好，雾气渐渐散去。",
+      "choices": []
+    },
+    {
+      "id": "mountain-gate",
+      "title": "山门铜铃",
+      "text": "铜铃悬在斑驳的山门下。一位守门人望着你，问你为何而来。",
+      "choices": [
+        {
+          "id": "seek-teaching",
+          "text": "坦言求道之心",
+          "nextId": "mountain-end",
+          "effects": {
+            "attack": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mountain-end",
+      "title": "门内初雪",
+      "text": "守门人侧身让开道路。你的修行故事，从这一场初雪开始。",
+      "choices": []
+    }
+  ]
+}

@@ -12,11 +12,15 @@ import type {
   Talent,
   TalentModifier,
   Weapon,
+  StoryChoice,
+  StoryDefinition,
 } from '../core/types';
 
 type GameActions = {
   rollTalents: () => void;
   startGame: () => void;
+  startStory: (story: StoryDefinition) => void;
+  chooseStoryChoice: (choice: StoryChoice) => void;
   choose: (choice: GameChoice) => void;
   useInventoryItem: (index: number) => void;
   discardInventoryItem: (index: number) => void;
@@ -36,8 +40,9 @@ function isWeapon(item: Player['inventory'][number]): item is Weapon {
   return 'attack' in item && 'affixes' in item;
 }
 
-function createBasePlayer(): Player {
+function createBasePlayer(name = '无名修士'): Player {
   return {
+    name,
     realm: startingStageId,
     hp: 100,
     maxHp: 100,
@@ -95,6 +100,8 @@ function createInitialState(): GameState {
     seed: Date.now(),
     log: ['等待入世。'],
     selectedTalents: pickRandomTalents(3),
+    story: undefined,
+    currentStoryNodeId: undefined,
     deathRecord: undefined,
   };
 }
@@ -144,11 +151,46 @@ export const useGameStore = create<GameStore>()(
             player,
             currentEventId: firstEvent?.id ?? 'forest_wolf',
             day: 1,
+            story: undefined,
+            currentStoryNodeId: undefined,
             deathRecord: undefined,
             log: [
               `你携 ${state.selectedTalents.map((talent) => talent.name).join('、')} 入世。`,
               '你在无名山谷中醒来。',
             ],
+          };
+        }),
+      startStory: (story) =>
+        set((state) => {
+          const player = applyTalentModifiers(createBasePlayer(story.protagonist.name), state.selectedTalents);
+
+          return {
+            isStarted: true,
+            player,
+            currentEventId: '',
+            currentStoryNodeId: story.startNodeId,
+            story,
+            day: 1,
+            deathRecord: undefined,
+            log: [`${player.name}踏入《${story.title}》。`],
+          };
+        }),
+      chooseStoryChoice: (choice) =>
+        set((state) => {
+          const nextPlayer = {
+            ...state.player,
+            ...choice.effects,
+            hp: Math.min(
+              choice.effects?.maxHp ?? state.player.maxHp,
+              Math.max(0, choice.effects?.hp ?? state.player.hp),
+            ),
+          };
+
+          return {
+            player: nextPlayer,
+            currentStoryNodeId: choice.nextId,
+            day: state.day + 1,
+            log: [`你选择了“${choice.text}”。`, ...state.log].slice(0, 20),
           };
         }),
       choose: (choice) =>

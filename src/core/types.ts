@@ -54,6 +54,7 @@ export type CultivationStage = {
 
 /** 当前周目的玩家属性和持有物。 */
 export type Player = {
+  name: string;
   realm: CultivationStageId;
   hp: number;
   maxHp: number;
@@ -63,6 +64,29 @@ export type Player = {
   gold: number;
   weapon?: Weapon;
   inventory: Array<Item | Weapon>;
+};
+
+export type StoryChoice = {
+  id: string;
+  text: string;
+  nextId?: string;
+  effects?: Partial<Pick<Player, 'hp' | 'maxHp' | 'attack' | 'agility' | 'luck' | 'gold'>>;
+};
+
+export type StoryNode = {
+  id: string;
+  title: string;
+  text: string;
+  choices: StoryChoice[];
+};
+
+export type StoryDefinition = {
+  title: string;
+  protagonist: {
+    name: string;
+  };
+  startNodeId: string;
+  nodes: StoryNode[];
 };
 
 /** 天赋对开局属性的修正。 */
@@ -205,5 +229,7 @@ export type GameState = {
   /** 日志按最新在前保存，并由 store 控制最大数量。 */
   log: string[];
   selectedTalents: Talent[];
+  story?: StoryDefinition;
+  currentStoryNodeId?: string;
   deathRecord?: DeathRecord;
 };
